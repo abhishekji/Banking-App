@@ -1,0 +1,208 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE module PUBLIC
+        "-//Checkstyle//DTD Checkstyle Configuration 1.3//EN"
+        "https://checkstyle.org/dtds/configuration_1_3.dtd">
+
+<module name="Checker">
+
+    <!-- ========================================================= -->
+    <!-- General configuration                                      -->
+    <!-- ========================================================= -->
+
+    <property name="charset" value="UTF-8"/>
+
+    <!-- Maximum line length -->
+    <module name="LineLength">
+        <property name="max" value="120"/>
+        <property name="ignorePattern"
+                  value="^package.*|^import.*|https?://.*"/>
+    </module>
+
+
+    <!-- ========================================================= -->
+    <!-- File-level checks                                          -->
+    <!-- ========================================================= -->
+
+    <module name="FileTabCharacter"/>
+
+    <module name="NewlineAtEndOfFile"/>
+
+
+    <!-- ========================================================= -->
+    <!-- Java source tree checks                                    -->
+    <!-- ========================================================= -->
+
+    <module name="TreeWalker">
+
+
+        <!-- ===================================================== -->
+        <!-- Imports                                                -->
+        <!-- ===================================================== -->
+
+        <!-- No wildcard imports -->
+        <module name="AvoidStarImport"/>
+
+        <!-- Unused imports -->
+        <module name="UnusedImports"/>
+
+
+        <!-- ===================================================== -->
+        <!-- Naming                                                  -->
+        <!-- ===================================================== -->
+
+        <!-- Classes: UserService, OrderController -->
+        <module name="TypeName"/>
+
+        <!-- Methods: getUser(), createOrder() -->
+        <module name="MethodName"/>
+
+        <!-- Variables: userName, orderId -->
+        <module name="LocalVariableName"/>
+
+        <!-- Parameters: userId, request -->
+        <module name="ParameterName"/>
+
+        <!-- Constants: MAX_RETRY_COUNT -->
+        <module name="ConstantName"/>
+
+        <!-- Members: userRepository -->
+        <module name="MemberName"/>
+
+
+        <!-- ===================================================== -->
+        <!-- Braces                                                  -->
+        <!-- ===================================================== -->
+
+        <module name="NeedBraces"/>
+
+        <module name="LeftCurly"/>
+
+        <module name="RightCurly"/>
+
+
+        <!-- ===================================================== -->
+        <!-- Whitespace                                              -->
+        <!-- ===================================================== -->
+
+        <module name="WhitespaceAround"/>
+
+        <module name="WhitespaceAfter"/>
+
+        <module name="NoWhitespaceBefore"/>
+
+        <module name="NoWhitespaceAfter"/>
+
+
+        <!-- ===================================================== -->
+        <!-- Coding style                                            -->
+        <!-- ===================================================== -->
+
+        <!-- Avoid empty blocks -->
+        <module name="EmptyBlock"/>
+
+        <!-- One statement per line -->
+        <module name="OneStatementPerLine"/>
+
+        <!-- One variable declaration per statement -->
+        <module name="MultipleVariableDeclarations"/>
+
+        <!-- Don't use unnecessary semicolons -->
+        <module name="UnnecessarySemicolon"/>
+
+        <!-- Avoid nested blocks -->
+        <module name="AvoidNestedBlocks"/>
+
+
+        <!-- ===================================================== -->
+        <!-- Java design / complexity                               -->
+        <!-- ===================================================== -->
+
+        <!-- Detect very large methods -->
+        <module name="MethodLength">
+            <property name="max" value="100"/>
+        </module>
+
+        <!-- Detect very large classes -->
+        <module name="ClassFanOutComplexity">
+            <property name="max" value="30"/>
+        </module>
+
+        <!-- Cyclomatic complexity -->
+        <module name="CyclomaticComplexity">
+            <property name="max" value="10"/>
+        </module>
+
+
+        <!-- ===================================================== -->
+        <!-- Common Java problems                                    -->
+        <!-- ===================================================== -->
+
+        <!-- Don't use == for String comparison -->
+        <module name="StringLiteralEquality"/>
+
+        <!-- Don't use System.out/System.err -->
+        <module name="RegexpSinglelineJava">
+            <property name="format"
+                      value="System\.(out|err)\.print(ln)?\("/>
+            <property name="message"
+                      value="Use a logger instead of System.out/System.err"/>
+            <property name="ignoreComments"
+                      value="true"/>
+        </module>
+
+
+        <!-- ===================================================== -->
+        <!-- Variable declarations                                   -->
+        <!-- ===================================================== -->
+
+        <module name="DeclarationOrder"/>
+
+        <module name="FinalLocalVariable">
+            <property name="tokens"
+                      value="VARIABLE_DEF"/>
+        </module>
+
+
+        <!-- ===================================================== -->
+        <!-- Modifiers                                               -->
+        <!-- ===================================================== -->
+
+        <module name="ModifierOrder"/>
+
+        <module name="RedundantModifier"/>
+
+
+        <!-- ===================================================== -->
+        <!-- Documentation                                          -->
+        <!-- ===================================================== -->
+
+        <!-- Require Javadoc for public classes -->
+        <module name="JavadocType">
+            <property name="scope" value="public"/>
+            <property name="allowMissingParamTags" value="true"/>
+            <property name="allowMissingThrowsTags" value="true"/>
+            <property name="allowMissingReturnTag" value="true"/>
+        </module>
+
+
+        <!-- ===================================================== -->
+        <!-- Exception handling                                     -->
+        <!-- ===================================================== -->
+
+        <!-- Avoid catching overly generic exceptions -->
+        <module name="IllegalCatch">
+            <property name="illegalClassNames"
+                      value="java.lang.Throwable,java.lang.Error"/>
+        </module>
+
+
+        <!-- ===================================================== -->
+        <!-- TODO / FIXME                                           -->
+        <!-- ===================================================== -->
+
+        <module name="TodoComment"/>
+
+    </module>
+
+</module>
